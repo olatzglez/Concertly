@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil de Jone</title>
+    <link rel="stylesheet" href="http://127.0.0.1:5500/css/styles.css?_cacheOverride=1772286299751">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,300;0,500;0,700;1,300;1,500;1,700&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <main class="profile">
+
+        <header class="header profile-header">
+            <h1 class="h1 profile-title">Perfil</h1>
+            <button class="btn primary-btn btn-edit">Editar</button>
+        </header>
+
+        <section class="container user-info">
+            <img src="/assets/img/avatar.jpg" alt="Foto de perfil" class="user-avatar">
+            
+            <div class="user-data">
+                <h2 class="h2 user-name">Jone A</h2>
+                <p class="user-username">@joneaaa</p>
+                <p class="user-location">28, Bilbao</p>
+            </div>
+        </section>
+
+        <section class="container genres">
+            <h3 class="h3 section-title">Géneros favoritos</h3>
+            <ul class="genre-list">
+                <li>Rock</li>
+                <li>Pop</li>
+                <li>Metal</li>
+                <li>Electrónica</li>
+            </ul>
+        </section>
+
+        <section class=" container tabs">
+            <button class="tab active">Conciertos</button>
+            <button class="tab">Personas afines</button>
+        </section>
+
+        <section class="container concerts">
+
+            <article class="card concert-card">
+                <img src="img/concert1.jpg" alt="Megadeth" class="concert-img">
+                
+                <div class="concert-info">
+                    <h4 class="h4 concert-title">Megadeth</h4>
+                    <p class="concert-date">29 de mayo de 2026</p>
+                    <p class="concert-location">
+                        Bizkaia Arena BEC, Barakaldo
+                    </p>
+
+                    <div class="concert-actions">
+                        <button class="btn primary-btn btn-interest">Me interesa</button>
+                        <button class="btn secondary-btn btn-share">Compartir</button>
+                        <a href="#" class="concert-tickets">Entradas</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="card concert-card">
+                <img src="img/concert2.jpg" alt="Melody Waves" class="concert-img">
+                
+                <div class="concert-info">
+                    <h4 class="h4 concert-title">Bad Gyal</h4>
+                    <p class="concert-date">15 de mayo de 2026</p>
+                    <p class="concert-location">
+                        Bilbao Arena Miribilla, Bilbao
+                    </p>
+
+                    <div class="concert-actions">
+                        <button class="btn primary-btn btn-interest">Me interesa</button>
+                        <button class="btn secondary-btn btn-share">Compartir</button>
+                        <a href="#" class="concert-tickets">Entradas</a>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
