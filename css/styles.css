@@ -3,6 +3,7 @@
     --font-family-text: 'Montserrat', Arial, sans-serif;
     --font-size-16: 1rem;
     --font-size-14: 0.875rem;
+    --font-size-20: 1.25rem;
     --font-size-16: 1rem;
     --bold: 800;
     --dark-blue: #091926;
@@ -247,7 +248,7 @@ header.concert-header { /* Cabecera del Concierto */
 }
 
 .logo-icon {
-    height: 3rem;
+    height: 40px;
     width: auto;
     left: -6px;
     position: relative;
@@ -258,7 +259,7 @@ header.concert-header { /* Cabecera del Concierto */
 }
 
 .menu-icon img {
-    width: 3rem;
+    width: 32px;
     height: auto;
 }
 
@@ -266,12 +267,13 @@ header.concert-header { /* Cabecera del Concierto */
     display: none;
     cursor: pointer;
 }
-
+/*
 #menu_hamburguesa:checked + .navbar.main-menu .nav-list {
     height: calc(100vh - var(--header-height));
-}
+}*/
 
 .main-title {
+    font-size: var(--font-size-20);
     margin: 0;
     padding: 0;
     flex-grow: 1;
@@ -284,6 +286,16 @@ header.concert-header { /* Cabecera del Concierto */
   flex-direction: row;
   gap: var(--spacing-24);
   align-items: center;
+}
+
+.navbar.main-menu .nav-list {
+    display: flex;
+    gap: var(--spacing-24);
+    position: static;
+    transform: none;
+    height: auto;
+    width: auto;
+    background: transparent;
 }
 
 .list-item.nav-list-item {
@@ -424,21 +436,6 @@ header.concert-header { /* Cabecera del Concierto */
     border: 1px solid;
     border-radius: var(--btn-border-radius);
 }
-/*
-.tab {
-    background-color: var(--bg-btn-primary);
-    padding: var(--btn-padding);
-    color: var(--black);
-    border: var(--btn-border-primary);
-    border-radius: var(--btn-border-radius);
-
-    &:hover, &:focus {
-        background-color: var(--dark-orange);
-        color: var(--black);
-        transition: all ease 0.8;
-        border-color: var(--dark-orange);
-    }
-}*/
 
 section.tabs {
     display: flex;
@@ -662,23 +659,18 @@ img.concert-avatar {
 @media (min-width: 768px) and (max-width: 991px) {
 
     .menu-icon {
-        display: block;
+        display: flex;
+        align-items: center;
     }    
 
     .navbar.main-menu .nav-list {
-        display: none;
+        display: flex;
         height: 0;
     }
 
     .navbar.main-menu {
         padding: 0;
     }
-
-    #menu_hamburguesa:checked ~ .nav-list {
-        display: flex;
-        opacity: 1;
-        visibility: visible;
-}
 
   .grid-container {
         display: grid;
@@ -704,6 +696,12 @@ img.concert-avatar {
     display: block;
   }
 
+  #menu_hamburguesa:checked ~ .nav-list {
+    transform: translateY(-100%);
+    opacity: 1;
+    visibility: visible;
+  }
+
   .navbar.main-menu { 
     height: 100%;
     display: flex;
@@ -716,31 +714,29 @@ img.concert-avatar {
     padding: 0;
   }
 
-  .navbar.main-menu .nav-list {
-    display: none;
-    flex-direction: column;
-    justify-content: flex-start;
-    position: absolute;
-    top: calc(var(--header-height) - var(--spacing-8));
-    height: 100vh;
+.navbar.main-menu .nav-list {
+    position: fixed;
+    top: var(--header-height);
     left: 0;
-    right: 0;
-    gap: var(--spacing-40);
-    background-color: var(--black);
-    padding: var(--spacing-32) 0 0 0;
-    transition: opacity 0.6s ease, visibility 0.8s ease;
-  }
-  
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+}
+
+#menu_hamburguesa:checked ~ .nav-list {
+transform: translateY(0);
+}
 
 .navbar.main-menu > .list-item.nav-list-item a {
     gap: var(--spacing-16);
 }
-/*
-#menu_hamburguesa:checked ~ .nav-list {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-}*/
 
 .btn {
     width: 100%;
@@ -782,12 +778,12 @@ section.tabs {
     }
 }
 
-
 /* Pantallas extremadamente pequeñas (móviles pequeños) */
 @media (max-width: 480px) {
 
     .menu-icon {
-        display: block;
+        display: flex;
+        align-items: center;
     }
 
   .navbar.main-menu { 
@@ -798,7 +794,7 @@ section.tabs {
     flex-wrap: wrap;
     position: relative;
   }
-
+/*
     .navbar.main-menu .nav-list {
     display: none;
     flex-direction: column;
@@ -807,18 +803,12 @@ section.tabs {
     position: absolute;
     top: var(--header-height);
     height: calc(100vh - var(--header-height));
-  }
+  }*/
 
   .nav-list-item {
     text-align: center;
     padding: var(--spacing-12) 0;
   }
-/*
-    #menu_hamburguesa:checked ~ .nav-list {
-    display: flex;
-    opacity: 1;
-    visibility: visible;
-}*/
 
   .menu-icon {
     display: block;
