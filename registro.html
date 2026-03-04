@@ -74,7 +74,7 @@
                     </header>
 
                     <section class="card">   
-        <form action="#" method="post" class="form-registro">
+                        <form action="#" method="post" class="form-registro">
 
                         <fieldset class="form-group grid-container">
                             <legend class="legend">Datos personales</legend>
@@ -123,35 +123,22 @@
                         <fieldset class="form-group grid-container">
                             <legend class="legend">Géneros musicales y artistas favoritos</legend>
 
-                            <div class="">
-                                <label for="rock" class="label">Rock</label><input type="checkbox" id="rock" name="generos" value="rock" class="input">
-                                
-                            </div>
-
-                            <div>
-                                <input type="checkbox" id="pop" name="generos" value="pop" class="input">
-                                <label for="pop" class="label">Pop</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" id="urbano" name="generos" value="urbano" class="input">
-                                <label for="urbano" class="label">Urbano</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" id="metal" name="generos" value="metal" class="input">
-                                <label for="metal" class="label">Metal</label>
-                            </div>
-
-                            <div>
-                                <input type="checkbox" id="electronica" name="generos" value="electronica" class="input">
-                                <label for="electronica" class="label">Electrónica</label>
+                                <div class="input-wrapper">
+                                    <label for="genre">Géneros musicales:</label>
+                                    <select id="genre" name="genre[]" multiple size="5">
+                                        <option value="pop">Pop</option>
+                                        <option value="rock">Rock</option>
+                                        <option value="metal">Metal</option>
+                                        <option value="urbano">Urbano</option>
+                                        <option value="electronica">Electrónica</option>
+                                    </select>
+                                </div>
 
                                 <div class="form-group">
                                     <label for="artistas" class="label">Artistas favoritos</label>
                                     <input type="text" id="artistas" name="artistas" class="input">
                                 </div>
-                        </div></fieldset>
+                            </fieldset>
 
                         <div class="form-group btn-list">
                             <button type="button" class="btn secondary-btn">Cancelar</button>

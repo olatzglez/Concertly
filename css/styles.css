@@ -259,15 +259,23 @@ header.concert-header { /* Cabecera del Concierto */
   padding: 0 var(--spacing-24);
 }
 
+.navbar.main-menu .nav-list {
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-24);
+  align-items: center;
+  position: static;
+}
+
+.menu-icon {
+  display: none;
+}
+
 .logo-icon {
     height: 40px;
     width: auto;
     left: -6px;
     position: relative;
-}
-
-.menu-icon {
-    display: none;
 }
 
 .menu-icon img {
@@ -279,10 +287,19 @@ header.concert-header { /* Cabecera del Concierto */
     display: none;
     cursor: pointer;
 }
-/*
-#menu_hamburguesa:checked + .navbar.main-menu .nav-list {
-    height: calc(100vh - var(--header-height));
-}*/
+
+.label_menu_hamburguesa::before {
+  content: "☰";
+  font-size: 24px;
+}
+
+#menu_hamburguesa:checked ~ .label_menu_hamburguesa::before {
+  content: "✕";
+}
+
+.icon-close {
+  display: none;
+}
 
 .main-title {
     font-size: var(--font-size-20);
@@ -298,16 +315,6 @@ header.concert-header { /* Cabecera del Concierto */
   flex-direction: row;
   gap: var(--spacing-24);
   align-items: center;
-}
-
-.navbar.main-menu .nav-list {
-    display: flex;
-    gap: var(--spacing-24);
-    position: static;
-    transform: none;
-    height: auto;
-    width: auto;
-    background: transparent;
 }
 
 .list-item.nav-list-item {
@@ -465,7 +472,7 @@ section.tabs {
     border: 1px solid var(--gray);
     border-radius: 8px; /* Hacer una variable del border-radius de los inputs */
     font-family: var(--font-family);
-    font-size: var(--font-size-16);
+    font-size: var(--font-size-14);
     padding: var(--spacing-4) var(--spacing-8);
     outline: none;
 }
@@ -528,7 +535,7 @@ input[type="checkbox"] {
 
 .input-wrapper {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     width: 100%;
 }
 
@@ -677,6 +684,10 @@ img.concert-avatar {
     .concert section > section.grid-container {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .label_menu_hamburguesa::before {
+        display: none;
+    }
 }
 
 /* Pantallas medianas (desktops y laptops) */
@@ -685,6 +696,61 @@ img.concert-avatar {
     .navbar.main-menu {
         padding: 0;
     }
+
+    /* Mostrar icono */
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Estado cerrado */
+  .navbar.main-menu .nav-list {
+    position: fixed;
+    top: var(--header-height);
+    right: 0;
+    width: 280px;
+    height: calc(100vh - var(--header-height));
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
+  }
+
+}
+
+/* Tamaños menores de 992px */
+
+@media (max-width: 991px) {
+
+  /* Mostrar icono hamburguesa */
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
+
+  /* Ocultar menú horizontal por defecto */
+  .navbar.main-menu .nav-list {
+    display: none;
+    position: fixed;
+    top: var(--header-height);
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 9999;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Mostrar solo cuando se activa el checkbox */
+  #menu_hamburguesa:checked ~ .nav-list {
+    display: flex;
+  }
 }
 
 /* Pantallas pequeñas (tabletas en orientación horizontal o dispositivos pequeños) */
@@ -695,14 +761,14 @@ img.concert-avatar {
         align-items: center;
     }    
 
-    .navbar.main-menu .nav-list {
-        display: flex;
-        height: 0;
-    }
-
     .navbar.main-menu {
         padding: 0;
     }
+
+  .menu-icon {
+    display: block;
+    cursor: pointer;
+  }
 
   .grid-container {
         display: grid;
@@ -726,12 +792,7 @@ img.concert-avatar {
 
   .menu-icon {
     display: block;
-  }
-
-  #menu_hamburguesa:checked ~ .nav-list {
-    transform: translateY(-100%);
-    opacity: 1;
-    visibility: visible;
+    cursor: pointer;
   }
 
   .navbar.main-menu { 
@@ -745,26 +806,6 @@ img.concert-avatar {
     position: relative;
     padding: 0;
   }
-
-.navbar.main-menu .nav-list {
-    position: fixed;
-    top: var(--header-height);
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.95);
-    z-index: 9999;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(-100%);
-    transition: transform 0.4s ease;
-}
-
-#menu_hamburguesa:checked ~ .nav-list {
-transform: translateY(0);
-}
 
 .navbar.main-menu > .list-item.nav-list-item a {
     gap: var(--spacing-16);
@@ -826,16 +867,6 @@ section.tabs {
     flex-wrap: wrap;
     position: relative;
   }
-/*
-    .navbar.main-menu .nav-list {
-    display: none;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    position: absolute;
-    top: var(--header-height);
-    height: calc(100vh - var(--header-height));
-  }*/
 
   .nav-list-item {
     text-align: center;
