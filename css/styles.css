@@ -23,7 +23,7 @@
     /* PADDINGS */
     --header-padding: 1rem;
     --main-menu-padding: 0 24px;
-    --btn-padding: 16px 8px;
+    --btn-padding: 24px 16px;
     --container-padding: 24px;
     --btn-list-padding: 16px 0;
     --card-list-padding: 0;
@@ -47,7 +47,7 @@
     --footer-margin: var(--spacing-64) 0 0 0;
 
     /* CARD */
-    --card-padding: 1rem;
+    --card-padding: 16px 12px 24px 12px;
     --card-border-radius: 8px;
     --card-height: 200px;
     --card-width: 200px;
@@ -146,6 +146,10 @@ h2.h2.concert-name {
     font-size: 2rem;
 }
 
+span {
+    color: var(--white);
+}
+
 /* CONTAINERS */
 
 .container {
@@ -155,8 +159,10 @@ h2.h2.concert-name {
 }
 
 .container.concert-info {
-    display: flex;
-    gap: var(--spacing-12);
+  display: flex;
+  gap: var(--spacing-12);
+  flex-direction: row;
+  justify-content: flex-start;
 }
 
 .hero {
@@ -170,6 +176,12 @@ h2.h2.concert-name {
 .hero > * {
     position: relative;
     z-index: 1;
+}
+
+.container-link {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 /* LISTAS */
@@ -205,6 +217,21 @@ a:hover, a:focus {
     text-decoration: underline;
     color: var(--link-color-hover);
     transition: all ease 0.9;
+}
+
+a.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-family-text);
+    font-size: var(--font-size-16);
+    min-width: var(--btn-min-width);
+    height: var(--btn-height);
+    padding: var(--btn-padding);
+    border: 1px solid transparent;
+    border-radius: var(--btn-border-radius);
+    background-color: transparent;
+    text-decoration: none;
 }
 
 .nav-list a {
@@ -339,6 +366,9 @@ header.concert-header { /* Cabecera del Concierto */
 /* CARDS */
 
 .card {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-16);
     background-color: var(--dark-blue);
     padding: var(--card-padding);
     border: 1px solid var(--dark-blue);
@@ -357,11 +387,10 @@ header.concert-header { /* Cabecera del Concierto */
     }
 
 .card-picture img {
-    width: 100%;
-    height: auto;
-    min-width: 100px;
-    min-height: 100px;
-    object-fit: cover;
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--spacing-8);
 }
 
 .container .card {
@@ -377,7 +406,7 @@ header.concert-header { /* Cabecera del Concierto */
     font-family: var(--font-family-text);
     font-size: var(--font-size-16);
     min-width: var(--btn-min-width);
-    min-height: var(--btn-min-height);
+    height: var(--btn-height);
     padding: var(--btn-padding);
     border: 1px solid transparent;
     border-radius: var(--btn-border-radius);
@@ -390,6 +419,18 @@ header.concert-header { /* Cabecera del Concierto */
   padding: var(--btn-list-padding);
   margin: 0;
   gap: var(--spacing-16);
+  align-items: center;
+}
+
+.form-group.btn-list {
+  display: flex;
+  flex-direction: row;
+  padding: var(--btn-list-padding);
+  margin: 0;
+  gap: var(--spacing-16);
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 }
 
 .btn.btn-primary {
@@ -408,7 +449,7 @@ header.concert-header { /* Cabecera del Concierto */
 }
 
 .header .btn {
-    height: var(--spacing-40);
+    padding: var(--spacing-16);
     margin-right: 0;
 }
 
@@ -496,7 +537,7 @@ input[type="checkbox"] {
   display: inline-block;
   font-family: var(--font-family-text);
   font-size: var(--font-size-16);
-  margin: 0;
+  margin: 0 0 6px 0;
   color: var(--white);
 }
 
@@ -510,6 +551,7 @@ input[type="checkbox"] {
 
 .container-input > label {
     margin-left: 0;
+    margin-bottom: 6px;
 }
 
 .select {
@@ -518,6 +560,22 @@ input[type="checkbox"] {
   color: var(--text-light-color);
   height: var(--btn-height);
   border-radius: var(--btn-border-radius);
+}
+
+#category-select {
+    height: 100%;
+}
+
+.container-input > #genero {
+    position: relative;
+    top: -8px;
+}
+
+.container-input > #pronombres {
+    position: relative;
+    
+    height: 100%;
+
 }
 
 .header select#idioma {
@@ -530,7 +588,7 @@ input[type="checkbox"] {
 }
 
 .option {
-    font-size: 0.85rem;
+    font-size: var(--font-size-16);
     font-family: var(--font-family-text);
 }
 
@@ -608,10 +666,10 @@ ul.nav-list.footer-list {
 /* FORMULARIOS */
 
 .legend {
-    font-size: var(--font-size-16);
+    font-size: var(--font-size-20);
     font-weight: var(--bold);
     color: var(--light-blue);
-    margin-bottom: var(--spacing-8);
+    margin-bottom: var(--spacing-16);
 }
 
 fieldset {
@@ -643,11 +701,12 @@ fieldset {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-16);
+    margin-left: var(--spacing-16);
 }
 
 img.concert-avatar {
-    width: 100px;
-    height: 100px;
+    width: 200px;
+    height: 200px;
     border-radius: 100%;
 }
 
@@ -667,7 +726,23 @@ img.concert-avatar {
   border: 0;
 }
 
+.concert-img {
+  width: auto;
+  height: 200px;
+  object-fit: cover;
+  border-radius: var(--card-border-radius);
+}
 
+.card.concert-card {
+  display: flex;
+  flex-direction: row;
+}
+
+.concert-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 
 /* MEDIA QUERIES */
 
@@ -822,7 +897,7 @@ img.concert-avatar {
 
 .btn-list {
     flex-direction: column;
-    padding-top: var(--spacing-0);
+    padding-top: var(--spacing-16);
 }
 
 .btn-list .list-item {
