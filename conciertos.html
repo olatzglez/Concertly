@@ -34,13 +34,42 @@
     <body>
 
     <main class="concert">
-        <header class="header concert-header">
-            <h1 class="h1 concert-title">Concierto</h1>
-            <button class="btn btn-primary btn-edit">Editar</button>
-        </header>
+<header class="header">
+            <nav class="navbar main-menu">
+                <div class="header_title_menu">
+                    <a href="index.html" id="logo-icon">
+                        <img class="logo-icon" src="/assets/img/logo-concertly.jpg" alt="Inicio">
+                    </a>
+                    <h1 class="main-title h1 logo">Concertly</h1>
+                </div>
+
+                <label for="menu_hamburguesa" class="label_menu_hamburguesa">
+                    
+                <span class="menu-icon" id="menu-icon">
+                        <img src="/assets/img/menu-icon-white.svg" alt="Menú">
+                    </span></label>
+                <input type="checkbox" name="" id="menu_hamburguesa" class="menu_hamburguesa">
+
+                <ul class="nav-list">
+                    <li class="list-item nav-list-item"><a class="" href="/conciertos.html" target="_blank" aria-label="Conciertos">Conciertos</a></li>
+                    <li class="list-item nav-list-item"><a class="" href="#" target="_blank" aria-label="Grupos">Grupos</a></li>
+                    <li class="list-item nav-list-item"><a class="" href="#" target="_blank" aria-label="Artistas">Artistas</a></li>
+                    <li class="list-item nav-list-item"><a class="" href="registro.html" target="_blank" aria-label="Registrarse">Registrarse</a></li>
+                    <li class="list-item nav-list-item"><a href="perfil.html" class="btn btn-primary">Iniciar sesión</a></li>
+                    <li class="list-item nav-list-item">
+                        <label for="idioma" class="label  sr-only">Idioma</label>
+                        <select name="idioma" id="idioma" class="select select-idioma">
+                            <option class="option select-option" value="castellano">Castellano</option>
+                            <option class="option select-option" value="euskera">Euskera</option>
+                            <option class="option select-option" value="english">English</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+    </header>
 
         <section class="container concert-info">
-            <img src="/assets/img/avatar.jpg" alt="Foto del grupo" class="concert-avatar">
+            <img src="/assets/img/megadeth.jpg" alt="Foto del grupo" class="concert-avatar">
             <div class="concert-data">
                 <h2 class="h2 concert-name">Megadeth</h2>
                 <p class="concert-concertname">@megadeth</p>

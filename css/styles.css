@@ -141,6 +141,11 @@ p {
     line-height: 1.188em;
 }
 
+h2.h2.concert-name {
+    margin-bottom: 0;
+    font-size: 2rem;
+}
+
 /* CONTAINERS */
 
 .container {
@@ -231,6 +236,13 @@ header.concert-header { /* Cabecera del Concierto */
     align-items: center;
     justify-content: space-between;
     align-content: center;
+}
+
+.registro-header {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: var(--spacing-16);
 }
 
 .navbar.main-menu {
@@ -370,7 +382,7 @@ header.concert-header { /* Cabecera del Concierto */
   flex-direction: row;
   padding: var(--btn-list-padding);
   margin: 0;
-
+  gap: var(--spacing-16);
 }
 
 .btn.btn-primary {
@@ -465,7 +477,12 @@ section.tabs {
 
 input::placeholder {
     color: #2f2f2f;
+}
 
+input[type="checkbox"] {
+    display: flex;
+    height: 24px;
+    width: 24px;
 }
 
 .label { /* Label de los select */
@@ -491,6 +508,8 @@ input::placeholder {
   font-family: var(--font-family);
   font-size: var(--font-size-14);
   color: var(--text-light-color);
+  height: var(--btn-height);
+  border-radius: var(--btn-border-radius);
 }
 
 .header select#idioma {
@@ -509,6 +528,7 @@ input::placeholder {
 
 .input-wrapper {
     display: flex;
+    flex-direction: column;
     width: 100%;
 }
 
@@ -583,6 +603,12 @@ ul.nav-list.footer-list {
     font-size: var(--font-size-16);
     font-weight: var(--bold);
     color: var(--light-blue);
+    margin-bottom: var(--spacing-8);
+}
+
+fieldset {
+    border: none;
+    margin-bottom: var(--spacing-24);
 }
 
 /* OTROS */
@@ -602,6 +628,12 @@ ul.nav-list.footer-list {
     justify-content: space-between;
     align-items: center;
     margin-top: var(--spacing-16);
+    gap: var(--spacing-16);
+}
+
+.concert-data {
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing-16);
 }
 
